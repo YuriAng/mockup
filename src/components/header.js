@@ -12,7 +12,7 @@ const Logo = styled.h1`
 const Wrapper = styled.div`
   background-color: #251c3c;
   color: white;
-  min-width: 10vw;
+
   height: 3em;
   display: flex;
   align-items: center;

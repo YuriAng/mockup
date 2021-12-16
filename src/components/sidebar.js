@@ -1,7 +1,7 @@
-import { useState } from "react";
 import styled from "styled-components";
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faUser, faCommentDollar, faListUl, faMapMarkerAlt, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faCalculator, faUser, faCommentDollar, faListUl, faMapMarkerAlt, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 
 const SidebarStyled = styled.div`
@@ -44,17 +44,17 @@ const Ul = styled.ul`
 const Icon = styled(FontAwesomeIcon)`
   margin-right: 0.5em;
 `
+const LinkStyled = styled(Link)`
+  color: white;
+  text-decoration: none;
+`
 
 const LiOpen = styled(Li)`
   text-align: right;
 `
 
-
-
-const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true)
-
-
+const Sidebar = (props) => {
+  const {isOpen, setIsOpen} = props
   return(
     <SidebarStyled isOpen={isOpen}>
       <Ul>
@@ -64,11 +64,15 @@ const Sidebar = () => {
             : <Icon icon={faChevronRight} />
           }
         </LiOpen>
-        <Li isOpen={isOpen}><Icon icon={faHome} /> {isOpen ? "Home" : ""} </Li>
-        <Li isOpen={isOpen}><Icon icon={faCommentDollar} />{isOpen ? "Leads" : ""}</Li>
+        <Li isOpen={isOpen}>
+          <Icon icon={faHome} />
+          {isOpen ? <LinkStyled to="/">Home</LinkStyled> : ""}
+        </Li>
+        <Li isOpen={isOpen}><Icon icon={faCommentDollar} />{isOpen ? <LinkStyled to="/leads">Leads</LinkStyled> : ""}</Li>
         <Li isOpen={isOpen}><Icon icon={faUser} /> {isOpen ? "People" : ""}</Li>
         <Li isOpen={isOpen}><Icon icon={faListUl} /> {isOpen ? "Jobs" : ""}</Li>
         <Li isOpen={isOpen}><Icon icon={faMapMarkerAlt} /> {isOpen ? "Map" : ""}</Li>
+        <Li isOpen={isOpen}><Icon icon={faCalculator} /> {isOpen ? <LinkStyled to="/estimate">Estimate</LinkStyled>: ""}</Li>
       </Ul>
     </SidebarStyled>
   )

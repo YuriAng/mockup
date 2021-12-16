@@ -1,44 +1,20 @@
 import styled from "styled-components";
 
-
 const ButtonStyled = styled.button`
-  display: grid;
+  background-color: #0d6fe9;
+  color: white;
+  border-radius: 5px;
   border: none;
-  font-size: 15px;
-  min-width: 11em;
-  min-height: 5em;
-  padding: 2em;
-  box-shadow: 0 2px 5px black;
-  background-color: white;
-  ${
-    ({ color }) => `
-    color: ${color};
-    `
-  }
-
-`
-const FirstColumn = styled.span`
-  grid-column-start: 1;
-  grid-column-end: 2;
-`
-const SecondColumn = styled.span`
-  grid-column-start: 2;
-  grid-column-end: 3;
-  display: flex;
-  flex-direction: column;
+  padding: 0.5em 2.5em;
+  margin-top: 1em;
 `
 
 const Button = (props) => {
-  const { leftIcon, children, number, color } = props
+  const { children, iconLeft } = props
   return(
     <div>
-      <ButtonStyled color={color}>
-        <FirstColumn>{leftIcon}</FirstColumn>
-        <SecondColumn>
-          <span>{number}</span>
-          <span>{children}</span>
-        </SecondColumn>
-      </ButtonStyled>
+
+      <ButtonStyled>{iconLeft}{children}</ButtonStyled>
     </div>
   )
 }
