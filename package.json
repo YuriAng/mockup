@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "homepage": "https://YuriAng.github.io/mockup",
+=======
+  
+>>>>>>> 7349fb0876549b863719d8af1e49ebf2a240541d
   "name": "mockup",
   "version": "0.1.0",
   "private": true,
